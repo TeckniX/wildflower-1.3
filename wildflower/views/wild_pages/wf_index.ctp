@@ -1,5 +1,7 @@
-<h2 class="section"><?php __('Pages'); ?></h2>
-
+<div id="page-header">
+	<h2 class="section"><?php __('Pages'); ?></h2>
+</div>
+<div id="page-listing">
 <?php
 	echo 
 	$form->create('WildPage', array('action' => 'wf_mass_update'));
@@ -29,4 +31,4 @@
             array('class' => 'add', 'escape' => false)) ?>
     </li>
 <?php $partialLayout->blockEnd(); ?>
-
+</div>

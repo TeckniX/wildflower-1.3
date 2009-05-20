@@ -117,7 +117,18 @@ class WildPagesController extends AppController {
         
         $this->pageTitle = $this->data[$this->modelClass]['title'];
         $parentPageOptions = $this->WildPage->getListThreaded($this->data['WildPage']['id']);
-        $this->set(compact('parentPageOptions'));
+		if ($handle = opendir(APP . 'views' . DS . 'themed' . DS . $this->theme . DS . 'wild_pages' . DS)) { 
+			$templatePageOptions = Array();
+		    while (false !== ($file = readdir($handle))) { 
+		        if (end(explode('.', $file)) == "ctp") { 
+		            $templatePageOptions[substr($file,0, strrpos($file,"."))] = ucfirst(substr($file,0, strrpos($file,"."))); 
+		        } 
+		    } 
+		    closedir($handle); 
+			asort($templatePageOptions);
+		} 
+		
+        $this->set(compact('parentPageOptions', 'templatePageOptions'));
     }
     
     function wf_reorder() {
@@ -372,7 +383,8 @@ class WildPagesController extends AppController {
             'id' => $page[$this->modelClass]['id']);
         $this->params['Wildflower']['page']['slug'] = $page[$this->modelClass]['slug'];        
         
-        $this->_chooseTemplate($page[$this->modelClass]['slug']);
+        
+		$this->_chooseTemplate($url, $page[$this->modelClass]['sub_template']);
     }
     
     function update_root_cache() {
@@ -453,26 +465,32 @@ class WildPagesController extends AppController {
      *
      * @param string $slug
      */
-    private function _chooseTemplate($slug) {
+     private function _chooseTemplate($url, $page_template=NULL) {
         // For home page home.ctp is the default
         $template = 'view';
         if ($this->isHome) {
             $template = 'home';
         }
         $render = $template;
-        
-        if (isset($this->theme)) {
-            $possibleThemeFile = APP . 'views' . DS . 'themed' . DS . $this->theme . DS . 'wild_pages' . DS . $slug . '.ctp';
-            if (file_exists($possibleThemeFile)) {
-                $render = $possibleThemeFile;
-            }
-        } else {
-            $possibleThemeFile = APP . 'views' . DS . 'wild_pages' . DS . $slug . '.ctp';
-            if (file_exists($possibleThemeFile)) {
-                $render = $possibleThemeFile;
-            }
+		
+        if(!empty($page_template) && file_exists(APP . 'views' . DS . 'themed' . DS . $this->theme . DS . 'wild_pages' . DS . $page_template . '.ctp')){
+        	$render = $page_template;
         }
-        
+		else{
+			while(!empty($url)){
+				//get the slug just like in the view function
+				$slug = end(explode('/', $url));
+		        $slug = self::slug($slug);
+				
+		        $possibleThemeFile = APP . 'views' . DS . 'themed' . DS . $this->theme . DS . 'wild_pages' . DS . $slug . '.ctp';
+		        if (file_exists($possibleThemeFile)) {
+		            $render = $possibleThemeFile;
+					break;
+		        }
+				// remove the last slug from the url and try again
+		        $url = substr($url, 0, strrpos($url, "/"));
+			}
+		}
         return $this->render($render);
     }
     

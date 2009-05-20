@@ -211,6 +211,10 @@ img {
     padding: 20px 25px 20px;
 }
 
+#page-listing {
+        margin-left: 20px;
+}
+
 .cleaner {
     clear: both;
     height: 1px;
@@ -723,6 +727,8 @@ select {
     border: none;
 }
 
+/* old css before Basecamp style*/
+/*
 .row-actions {
     font-size: 11px !important;
     position: absolute;
@@ -736,6 +742,8 @@ select {
     -webkit-border-top-left-radius: 10px;
     -webkit-border-bottom-left-radius: 10px;
 }
+*/
+
 
 .post-date {
     font-size: 10px;
@@ -1545,4 +1553,47 @@ select {
 
 #setting-wordpress_api_key input {
     width: 100px;
+}
+
+/* Basecamp like actions */
+.row-actions ul {
+    padding-left: 10px;
+}
+.row-actions li {
+    float: left;
+}
+.row-actions li.delete{
+	margin:0 6px 0 0;
+}
+.row-actions li.edit{
+	margin:0 6px 0 0;
+}
+.row-actions li.move{
+	margin:0 6px 0 0;
+	cursor: move;
+}
+
+div.nubbin {
+	height:0;
+	left:0;
+	position:relative;
+	top:-4px;
+	width:0;
+	z-index:0;
+}
+.row-actions {
+	/*background:transparent url(img/nubbin.gif) no-repeat scroll left top;*/
+	background-color: #fff;
+    -moz-border-radius: 10px 0 0 10px; 
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+	font-size:10px;
+	height:19px;
+	line-height:10px;
+	margin:0;
+	display: none;
+	padding:7px 0 0 7px;
+	position:absolute;
+	right: 0px;
+	width: 75px;
 }

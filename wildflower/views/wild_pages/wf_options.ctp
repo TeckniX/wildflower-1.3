@@ -14,6 +14,7 @@
     $form->input('draft', array('type' => 'select', 'label' => 'Status', 'options' => WildPage::getStatusOptions())),
     $form->input('description_meta_tag', array('type' => 'textarea', 'rows' => 4, 'cols' => 60, 'tabindex' => '4')),
     $form->input('slug', array('label' => 'URL slug', 'size' => 61)),
+	$form->input('sub_template', array('type' => 'select', 'label' => 'Use Template', 'options' => $templatePageOptions , 'empty' => '(default)', 'escape' => false)),
     $form->input('created', array());
 ?>
 
