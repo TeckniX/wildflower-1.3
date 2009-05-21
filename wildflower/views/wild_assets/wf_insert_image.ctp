@@ -28,7 +28,10 @@
     
     <div id="resize_image">
         <h5>Resize</h5>
-        Width: <input type="text" id="resize_x" name="data[Resize][width]" size="4"> px&nbsp;&nbsp; Height: <input type="text" name="data[Resize][height]" id="resize_y" size="4"> px
+		<select id="imgSize" style="width: 90px"><option value="">Normal</option><option value="<?= IMG_SMALL ?>">Small</option><option value="<?= IMG_MEDIUM ?>">Medium</option><option value="<?= IMG_LARGE ?>">Large</option><option value="custom">Custom</option></select>
+        <span id="cropSize" style="padding-left: 10px;display:none;">Crop: <input type="checkbox" id="imgCrop" value="1" /></span>
+		<br><br>
+		<span id="customSize" style="display: none">Width: <input type="text" id="resize_x" name="data[Resize][width]" size="4"> px&nbsp;&nbsp; Height: <input type="text" name="data[Resize][height]" id="resize_y" size="4"> px</span>
     </div>
     
     <span class="cleaner"></span>

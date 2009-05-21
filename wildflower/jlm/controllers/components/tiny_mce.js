@@ -80,6 +80,30 @@ $.jlm.addComponent('tinyMce', {
                 $('#image-browser .selected').removeClass('selected');
                 $(this).addClass('selected');
             });
+			
+			// Bind image size
+			$("#imgSize", imageSidebarEl).change(function(){
+				
+				if($(this).val()!="" && $(this).val()!="custom"){
+					$('#cropSize').css("display","inline");
+					$('#customSize').hide();
+					var iSize = $(this).val().split("x");
+					$('#resize_x', imageSidebarEl).val(iSize[0]);
+					$('#resize_y', imageSidebarEl).val(iSize[1]);
+				}
+				else if($(this).val()=="custom"){
+					$('#cropSize').css("display","inline")
+					$('#customSize').show();
+					
+				}
+				else{
+					$('#cropSize').css("display","none");
+					$('#customSize').hide();
+					
+					$('#resize_x', imageSidebarEl).val('');
+					$('#resize_y', imageSidebarEl).val('');
+				}
+			});
             
             // Bind insert button
     		$('#insert_image', imageSidebarEl).click(function() {
@@ -95,7 +119,12 @@ $.jlm.addComponent('tinyMce', {
 
                 // Thumbnail
                 var resizeWidth = $('#resize_x', imageSidebarEl).val();
-                var crop = 1;
+                if($("#imgCrop").is(":checked")){
+					var crop = 1;
+				}
+				else{
+					var crop = '';
+				}
                 var resizeHeight = $('#resize_y', imageSidebarEl).val();
                 if (intval(resizeHeight) < 1) {
                     resizeHeight = resizeWidth;
