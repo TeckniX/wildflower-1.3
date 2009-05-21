@@ -22,7 +22,7 @@ $behaviorPaths = array(WILDFLOWER_DIR . DS . 'models' . DS . 'behaviors' . DS);
 $helperPaths = array(WILDFLOWER_DIR . DS . 'views' . DS . 'helpers' . DS);
 $componentPaths = array(WILDFLOWER_DIR . DS . 'controllers' . DS . 'components' . DS);
 
-// Define image size
+// Define default image size for WYSIWYG
 define('IMG_SMALL',"90x90");
 define('IMG_MEDIUM',"200x200");
 define('IMG_LARGE',"480x480");
