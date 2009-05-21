@@ -1,4 +1,5 @@
 <?php 
+    $prefix = Configure::read('Wildflower.prefix');
     echo 
     $form->create('WildPage', array('url' => $html->url(array('action' => 'update', 'base' => false)), 'class' => 'horizontal-form')),
     '<div>',
@@ -25,7 +26,7 @@
             "<li$attr>",
             '<div class="list-item">',
             $html->link("{$time->niceShort($version['WildRevision']['created'])}",
-                "/wf/pages/edit/{$version['WildRevision']['node_id']}/rev:$revParam"),
+                "/{$prefix}/pages/edit/{$version['WildRevision']['node_id']}/rev:$revParam"),
             "<small>$first</small>",
             '</div>',
             '</li>';

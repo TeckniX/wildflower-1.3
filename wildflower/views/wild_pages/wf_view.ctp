@@ -1,5 +1,6 @@
 <?php 
     $editUrl = Router::url(array('action' => 'edit', $page['WildPage']['id']));
+    $prefix = Configure::read('Wildflower.prefix');
     if (isset($this->params['named']['rev'])) {
         $editUrl .= "/rev:{$this->params['named']['rev']}";
     }
@@ -34,7 +35,7 @@
                 if (isset($this->params['named']['rev']) and $this->params['named']['rev'] == $version['WildRevision']['revision_number']) {
                     $attr['class'] = 'current';
                 }
-                echo '<li>', $html->link($time->niceShort($version['WildRevision']['created']), "/{$this->params['prefix']}/pages/view/{$page['WildPage']['id']}/rev:{$version['WildRevision']['revision_number']}", $attr), '</li>';
+                echo '<li>', $html->link($time->niceShort($version['WildRevision']['created']), "/{$prefix}/pages/view/{$page['WildPage']['id']}/rev:{$version['WildRevision']['revision_number']}", $attr), '</li>';
                 $attr['class'] = '';
             }
         ?>
