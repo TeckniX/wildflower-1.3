@@ -20,12 +20,12 @@ class WildUser extends AppModel {
             'allowEmpty' => false,
             'required' => true
         ),
-		'login' => array(
-			'rule' => array('alphaNumeric', array('between', 5, 50)),
-			'required' => true,
-			'message' => 'Login must be between 5 to 50 alphanumeric characters long'
-		),
-		'password' => array(
+	'login' => array(
+		'rule' => array('custom', '/^[a-z0-9_.]{5,50}$/i'),
+		'required' => true,
+		'message' => 'Login must be between 5 to 50 alphanumeric characters long'
+	),
+	'password' => array(
             'between' => array(
                 'rule' => array('between', 5, 50),
                 'required' => true,
