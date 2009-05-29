@@ -186,7 +186,7 @@ class WildPage extends AppModel {
      * @param string $pageSlug
      * @return array
      */
-    function getChildrenForMenu($pageSlug) {
+    function getChildrenForMenu($pageSlug, $active=false) {
         $page = $this->findBySlug($pageSlug);
         $pages = $this->children($page[$this->name]['id']);
         if (empty($pages)) {
@@ -194,6 +194,20 @@ class WildPage extends AppModel {
         }
         $titles = Set::extract($pages, "{n}.{$this->name}.title");
         $urls = Set::extract($pages, "{n}.{$this->name}.url");
+		
+		// Added to remove draft pages from the array
+		$drafts = Set::extract($pages, "{n}.{$this->name}.draft");
+		if($active){
+			foreach($drafts as $key => $value) {
+				if($value == "1") {
+					unset($titles[$key]);
+					unset($urls[$key]);
+				}
+			}
+			$titles = array_values($titles);
+			$urls = array_values($urls);
+		}
+		
         return array_combine($titles, $urls);
     }
     

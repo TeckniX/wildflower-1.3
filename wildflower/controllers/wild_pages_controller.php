@@ -376,6 +376,17 @@ class WildPagesController extends AppController {
             'keywordsMetaTag' => $page[$this->modelClass]['keywords_meta_tag']
         );
         $this->set($this->params['pageMeta']);
+		
+		// Get all subpages for the current page or return pages at the same level
+		$navSlug = explode("/",substr($url,1));
+        $this->params['childPages'] = $this->WildPage->getChildrenForMenu($page[$this->modelClass]['slug'],true);
+		$slugLevel = sizeof($navSlug)-1;
+        while(empty($this->params['childPages']) && $slugLevel>=0){
+                $this->params['childPages'] = $this->WildPage->getChildrenForMenu($navSlug[$slugLevel],true);
+				$slugLevel--;
+        }
+		
+		
         // Parameters @TODO unify parameters
         $this->params['current'] = array(
             'type' => 'page', 

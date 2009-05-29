@@ -27,11 +27,11 @@ $.jlm.addComponent('tinyMce', {
             mode: "none",
             theme: "advanced",
             // @TODO cleanup unneeded plugins
-            plugins: "wfinsertimage,safari,style,paste,directionality,visualchars,nonbreaking,xhtmlxtras,inlinepopups,fullscreen",
+            plugins: "wfinsertimage,safari,style,paste,directionality,visualchars,table,nonbreaking,xhtmlxtras,inlinepopups,fullscreen",
             doctype: '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">',
 
             // Theme options
-            theme_advanced_buttons1: "undo,redo,|,bold,italic,strikethrough,|,formatselect,styleselect,|,bullist,numlist,|,outdent,indent,blockquote,|,link,unlink,wfinsertimage,wfinsertwidget,|,charmap,code,fullscreen",
+            theme_advanced_buttons1: "undo,redo,|,bold,italic,strikethrough,|,formatselect,|,table,row_props,cell_props ,|,styleselect,|,bullist,numlist,|,outdent,indent,blockquote,|,link,unlink,wfinsertimage,wfinsertwidget,|,charmap,code,fullscreen",
             theme_advanced_styles : "Align left=left;Align right=right",
     		theme_advanced_buttons2: "",
     		theme_advanced_buttons3: "",
@@ -42,7 +42,15 @@ $.jlm.addComponent('tinyMce', {
             theme_advanced_resize_horizontal: false,
     		theme_advanced_path: false,
             width: '100%',
-
+			
+			//TABLEs
+			table_styles : "",
+			table_cell_styles : "",
+			table_row_styles : "",
+			table_cell_limit : 100,
+			table_row_limit : 5,
+			table_col_limit : 5,
+			
             // URLs
             relative_urls: false,
             remove_script_host: false,

@@ -270,3 +270,21 @@ a {
         color: #fff;
         background-color: transparent;
     }
+    
+/* Side Navigation */
+#contentLeft {
+	float:left;
+	padding:10px 5px 0;
+	width:150px;
+}
+#contentLeft ul {
+	margin:0;
+	padding:0;
+}
+#contentLeft li {
+	list-style-type:none;
+}
+#contentRight {
+	float:left;
+	width:620px;
+}
