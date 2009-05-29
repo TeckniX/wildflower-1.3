@@ -13,10 +13,15 @@
     
     <base href="<?php echo FULL_BASE_URL . rtrim($this->here, '/') . '/'; ?>" />
     
-    <?php echo $html->css(array('wildflower/main')); ?>
-        
+    <?php 
+	echo $html->css(array('wildflower/main')); 
+    echo $javascript->link(array('/wildflower/js/jquery','/wildflower/js/facebox'));
+	?>
     <script type="text/javascript">
         BASE = '<?php echo $this->base ?>';
+		$(document).ready(function(){
+	      $('a[rel*=zoombox]').facebox();
+		});
     </script>
 </head>
 <body>

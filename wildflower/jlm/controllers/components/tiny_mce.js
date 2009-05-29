@@ -133,16 +133,21 @@ $.jlm.addComponent('tinyMce', {
 				else{
 					var crop = '';
 				}
+				// Image HTML
+    			var imgHtml = '<img alt="' + imgName + '" src="' + imgUrl + '" />';
+				
                 var resizeHeight = $('#resize_y', imageSidebarEl).val();
                 if (intval(resizeHeight) < 1) {
                     resizeHeight = resizeWidth;
                 }
                 if (intval(resizeHeight) > 1) {
+					var lrgUrl = $.jlm.base + '/wildflower/thumbnail/' + imgNameEscaped + '/600/600/';
+                    imgHtml = '<a rel="zoombox" href="'+lrgUrl+'" style="background:none;">';
                     imgUrl = $.jlm.base + '/wildflower/thumbnail/' + imgNameEscaped + '/' + resizeWidth + '/' + resizeHeight + '/' + crop;
+					imgHtml += '<img alt="' + imgName + '" src="' + imgUrl + '" border="0" /></a>';
                 }
 
-    			// Image HTML
-    			var imgHtml = '<img alt="' + imgName + '" src="' + imgUrl + '" />';
+    			
 
     			$.jlm.components.tinyMce.editor.execCommand('mceInsertContent', 0, imgHtml);
 
