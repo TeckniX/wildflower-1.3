@@ -58,7 +58,8 @@ class JlmPackagerComponent {
         $output .= $this->readFile($libDir . 'functions.js');
         $output .= $this->readFile($libDir . 'trimpath-template.js');
         $output .= $this->readFile($libDir . 'jquery.jlm.js');
-        
+        $output .= $this->readFile($libDir . 'jquery-ui-1.7.1.min.js');
+		
         // First load Wildflower templates
         $viewsPath = $this->wfJlmDir . DS . 'views';
         $output .= $this->readTemplates($viewsPath);

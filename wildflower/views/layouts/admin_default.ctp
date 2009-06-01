@@ -45,6 +45,14 @@
 
         $(function() {
            $.jlm.dispatch(); 
+	   $("ul.pages-list").sortable({ opacity: 0.6, cursor: 'move', update: function() {
+			var order = $(this).sortable("serialize") + '&action=updateRecordsListings';
+			alert("My serial: "+$(this).sortable("serialize"));
+			$.post("updateDB.php", order, function(theResponse){
+				$("#contentRight").html(theResponse);
+			}); 															 
+		}								  
+		});
         });
     //]]>
     </script>

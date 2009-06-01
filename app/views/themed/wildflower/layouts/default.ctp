@@ -15,7 +15,7 @@
     
     <?php 
 	echo $html->css(array('wildflower/main')); 
-    echo $javascript->link(array('/wildflower/js/jquery','/wildflower/js/facebox'));
+    echo $javascript->link(array('/wildflower/js/jquery-1.3.2.min','/wildflower/js/facebox'));
 	?>
     <script type="text/javascript">
         BASE = '<?php echo $this->base ?>';
