@@ -10,7 +10,7 @@
 	</div>
     <span class="row-check"><?php echo $form->checkbox('id.' . $data['WildPage']['id']) ?></span>
     <?php
-        $tree->addItemAttribute('id', 'page-' . $data['WildPage']['id']);
+        $tree->addItemAttribute('id', 'page-' . $data['WildPage']['id'].'.'. $data['WildPage']['lft'].'.'.$data['WildPage']['rght']);
         $tree->addItemAttribute('class', 'level-' . $depth);
         if (ListHelper::isOdd()) {
             $tree->addItemAttribute('class', 'odd');
