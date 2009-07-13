@@ -14,7 +14,7 @@
     <base href="<?php echo FULL_BASE_URL . rtrim($this->here, '/') . '/'; ?>" />
     
     <?php 
-	echo $html->css(array('wildflower/main')); 
+	echo $html->css(array('wildflower/main', 'wildflower/extra')); 
     echo $javascript->link(array('/wildflower/js/jquery-1.3.2.min','/wildflower/js/facebox'));
 	?>
     <script type="text/javascript">
