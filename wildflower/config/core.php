@@ -27,6 +27,7 @@ Configure::write(array('Wildflower' => array(
     'previewCache' => CACHE . 'wf_previews',
     'thumbnailsCache' => CACHE . 'wf_thumbnails',
     'postsParent' => 'p',
+    'eventsParent' => 'events',
     'blogIndex' => 'blog',
     // Disabling the root page cache may be useful in debugging 
     // (the cache file won't be created, page routes load from the database)

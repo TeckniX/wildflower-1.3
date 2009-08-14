@@ -23,6 +23,9 @@
         } else if ($this->params['controller'] == 'wild_posts') {
             $entityUrl = '/' . Configure::read('Wildflower.postsParent') . '/' . $this->data['WildPost']['slug'];
             $entity = 'post';
+		} else if ($this->params['controller'] == 'wild_events') {
+            $entityUrl = '/' . Configure::read('Wildflower.eventsParent') . '/' . $this->data['WildEvent']['slug'];
+            $entity = 'events';
         }
         echo $html->link("View this $entity", $entityUrl, array('class' => 'editor_view_link')); 
     ?>

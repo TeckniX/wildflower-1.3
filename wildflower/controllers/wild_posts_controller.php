@@ -10,6 +10,7 @@ class WildPostsController extends AppController {
 	    'Time',
 	    'Paginator',
 	);
+	public $uses = array('WildPost','WildAsset');
 	public $components = array('Email');
 	
 	/** Pagination options for the wf_index action **/
@@ -145,6 +146,23 @@ class WildPostsController extends AppController {
         $this->pageTitle = $this->data[$this->modelClass]['title'];
     }
     
+	function wf_thumb($id = null) {
+        $this->WildPost->contain(array('WildUser', 'WildCategory'));
+        $this->data = $this->WildPost->findById($id);
+        
+        if (empty($this->data)) return $this->cakeError('object_not_found');
+   
+        $isDraft = ($this->data[$this->modelClass]['draft'] == 1) ? true : false;
+		//$this->paginate['limit'] = 10;
+		$this->paginate['conditions'] = "WildAsset.mime LIKE 'image%'";
+		$this->paginate['order'] = array('WildAsset.created' => 'desc');
+		$images = $this->paginate('WildAsset');
+		//$this->set('images', $images);
+        $this->set(compact('isDraft','images'));
+        
+        $this->pageTitle = $this->data[$this->modelClass]['title'];
+    }
+	
     function wf_update() {
         //fb($this->data);
         $this->data[$this->modelClass]['wild_user_id'] = $this->getLoggedInUserId();

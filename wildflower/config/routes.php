@@ -20,7 +20,7 @@ Router::connect('/' . Configure::read('Wildflower.blogIndex') . '/*', array('con
  * Changing Wildflower.prefix in app/plugins/wildflower/config/core.php allows you
  * to change the WF admin url. After this access the admin under /your-prefix.
  */
-$wfControllers = array('pages', 'posts', 'dashboards', 'users', 'categories', 'comments', 'assets', 'messages', 'uploads', 'settings', 'utilities', 'widgets', 'sidebars', 'menus', 'menu_items');
+$wfControllers = array('pages', 'posts', 'dashboards', 'users', 'categories', 'comments', 'events', 'assets', 'messages', 'uploads', 'settings', 'utilities', 'widgets', 'sidebars', 'menus', 'menu_items');
 foreach ($wfControllers as $shortcut) {
 	Router::connect(
 		"/$prefix/$shortcut", 
@@ -55,6 +55,10 @@ Router::connect("/$prefix/login", array('controller' => 'wild_users', 'action' =
 // Contact form
 Router::connect('/contact', array('controller' => 'wild_messages', 'action' => 'index'));
 Router::connect('/contact/create', array('controller' => 'wild_messages', 'action' => 'create'));
+
+// Events
+Router::connect('/' . Configure::read('Wildflower.eventsParent'), array('controller' => 'wild_events', 'action' => 'index'));
+Router::connect('/' . Configure::read('Wildflower.eventsParent') . '/:slug', array('controller' => 'wild_events', 'action' => 'view'));
 
 // RSS
 Router::connect('/' . Configure::read('Wildflower.blogIndex') . '/feed', array('controller' => 'wild_posts', 'action' => 'feed'));

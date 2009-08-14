@@ -13,7 +13,7 @@
         echo
         // Load your CSS files here
         $html->css(array(
-            '/wildflower/css/wf.main',
+            '/wildflower/css/wf.main','/css/wildflower/calendar'
         )),
         // TinyMCE 
         // @TODO load only on pages with editor?
@@ -78,6 +78,7 @@
                 __('Posts', true) => array('controller' => 'wild_posts'),
                 __('Categories', true) => array('controller' => 'wild_categories'),
                 __('Comments', true) => array('controller' => 'wild_comments'),
+				__('Events', true) => array('controller' => 'wild_events'),
                 __('Messages', true) => array('controller' => 'wild_messages'),
                 __('Files', true) => array('controller' => 'wild_assets'),
                 

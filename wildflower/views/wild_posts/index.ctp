@@ -16,7 +16,9 @@
         <h2><?php echo $html->link($post['WildPost']['title'], WildPost::getUrl($post['WildPost']['slug'])); ?></h2>
         <small class="post-date">Posted <?php echo $time->nice($post['WildPost']['created']) ?></small>
         
-        <div class="entry"><?php echo $wild->processWidgets($post['WildPost']['content']); ?></div>
+        <div class="entry">
+        	<?php echo $html->image('/wildflower/thumbnail/'. end(explode('/',$post['WildPost']['thumbnail'])).'/100/1000', array('style'=>'text-align: right')); ?>
+        	<?php echo $wild->processWidgets($post['WildPost']['content']); ?></div>
         
         <?php if (!empty($post['WildCategory'])): ?>
         <p class="postmeta">Posted in <?php echo $category->getList($post['WildCategory']); ?>.</p>

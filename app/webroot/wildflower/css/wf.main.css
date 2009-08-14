@@ -42,6 +42,10 @@ img {
     border: none;
 }
 
+.clear, .cleaner{
+        clear: both;
+}
+
 #wrap,
 #footer,
 #header-wrap {
@@ -400,6 +404,18 @@ select {
         margin-bottom: 10px;
     }
     
+        .select .checkbox{
+    	float: left;
+    	margin: 0px 5px;
+    }
+    	.checkbox label{
+    		display: inline;
+    	}
+    	.checkbox input{
+    		vertical-align: -2px;
+    		padding-right: 5px;
+    	}
+    	
 .mceEditor {
     margin-bottom: 8px;
     display: block;
@@ -667,6 +683,13 @@ select {
 .selected {
     background-color: #fffde0;
 }    
+
+.hover {
+    background-color: #eeeeee;
+}
+.imgUrl {
+        display: none;
+}
 
 .trash {
     background: url(img/cross.png) 0 0 no-repeat;

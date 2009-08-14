@@ -2,7 +2,10 @@
 	<h2><?php echo $post['WildPost']['title']; ?></h2>
 	<small class="post-date">Posted <?php echo $time->nice($post['WildPost']['created']); ?></small>
 	
-	<div class="entry"><?php echo $post['WildPost']['content']; ?></div>
+	<div class="entry">
+		<?php echo $html->image('/wildflower/thumbnail/'. end(explode('/',$post['WildPost']['thumbnail'])).'/300/1000', array('style'=>'text-align: right')); ?>
+		<?php echo $post['WildPost']['content']; ?>
+		</div>
 	
 	<?php if (!empty($post['Category'])) { ?>
 	   <p class="postmeta">Posted in <?php echo $category->getList($post['Category']); ?>.</p>

@@ -1,4 +1,4 @@
-$.jlm.component('WriteNew', 'wild_posts.wf_index, wild_posts.wf_edit, wild_pages.wf_index, wild_pages.wf_edit', function() {
+$.jlm.component('WriteNew', 'wild_posts.wf_index, wild_posts.wf_edit, wild_pages.wf_index, wild_pages.wf_edit, wild_events.wf_index', function() {
     
     $('#sidebar .add').click(function() {
         // if ($('.new-dialog').size() > 0) {
@@ -18,6 +18,10 @@ $.jlm.component('WriteNew', 'wild_posts.wf_index, wild_posts.wf_edit, wild_pages
             parentPageOptions = $('.all-page-parents').html();
             parentPageOptions = parentPageOptions.replace('[Page]', '[WildPage]');
             parentPageOptions = parentPageOptions.replace('[parent_id_options]', '[parent_id]');
+        }
+		else if ($.jlm.params.controller == 'wild_events') {
+            templatePath = 'events/new_event';
+            var parentPageOptions = null;
         }
         
         var dialogEl = $($.jlm.template(templatePath, { action: formAction, parentPageOptions: parentPageOptions }));

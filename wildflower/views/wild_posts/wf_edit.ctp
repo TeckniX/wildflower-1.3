@@ -42,7 +42,8 @@
     <li class="main_sidebar">
         <ul class="sidebar-menu-alt edit-sections-menu">
             <li><?php echo $html->link('Options <small>like status, publish date, etc.</small>', array('action' => 'options', $this->data['WildPost']['id']), array('escape' => false)); ?></li>
-            <li><?php echo $html->link('Browse older versions', '#Revisions', array('rel' => 'post-revisions')); ?></li>
+            <li><?php echo $html->link('Post thumbnail ', array('action' => 'thumb', $this->data['WildPost']['id']), array('escape' => false)); ?></li>
+			<li><?php echo $html->link('Browse older versions', '#Revisions', array('rel' => 'post-revisions')); ?></li>
             <li><?php echo $html->link("Comments ({$this->data['WildPost']['wild_comment_count']})", array('action' => 'comments', $this->data['WildPost']['id'])); ?></li>
         </ul>
     </li>
