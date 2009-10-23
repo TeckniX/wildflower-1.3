@@ -146,8 +146,7 @@ class PostsController extends AppController {
         $this->pageTitle = $this->data[$this->modelClass]['title'];
     }
     
-<<<<<<< HEAD:wildflower/controllers/wild_posts_controller.php
-	function wf_thumb($id = null) {
+    function wf_thumb($id = null) {
         $this->WildPost->contain(array('WildUser', 'WildCategory'));
         $this->data = $this->WildPost->findById($id);
         
@@ -164,10 +163,7 @@ class PostsController extends AppController {
         $this->pageTitle = $this->data[$this->modelClass]['title'];
     }
 	
-    function wf_update() {
-=======
     function admin_update() {
->>>>>>> 853920ce542235a426a12ae3ae2e697a80080143:wildflower/controllers/posts_controller.php
         //fb($this->data);
         $this->data[$this->modelClass]['user_id'] = $this->getLoggedInUserId();
 

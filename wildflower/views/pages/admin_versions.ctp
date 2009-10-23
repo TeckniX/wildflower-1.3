@@ -25,13 +25,8 @@
             echo 
             "<li$attr>",
             '<div class="list-item">',
-<<<<<<< HEAD:wildflower/views/wild_pages/wf_versions.ctp
-            $html->link("{$time->niceShort($version['WildRevision']['created'])}",
-                "/{$prefix}/pages/edit/{$version['WildRevision']['node_id']}/rev:$revParam"),
-=======
             $html->link("{$time->niceShort($version['Revision']['created'])}",
                 "/" . Configure::read('Routing.admin') . "/pages/edit/{$version['Revision']['node_id']}/rev:$revParam"),
->>>>>>> 853920ce542235a426a12ae3ae2e697a80080143:wildflower/views/pages/admin_versions.ctp
             "<small>$first</small>",
             '</div>',
             '</li>';
@@ -45,10 +40,5 @@
 
 
 <?php $partialLayout->blockStart('sidebar'); ?>
-<<<<<<< HEAD:wildflower/views/wild_pages/wf_versions.ctp
-    <?php echo $this->element('../wild_pages/_page_edit_right_menu'); ?>
-<?php $partialLayout->blockEnd(); ?>
-=======
     <?php echo $this->element('../pages/_page_edit_right_menu'); ?>
 <?php $partialLayout->blockEnd(); ?>
->>>>>>> 853920ce542235a426a12ae3ae2e697a80080143:wildflower/views/pages/admin_versions.ctp

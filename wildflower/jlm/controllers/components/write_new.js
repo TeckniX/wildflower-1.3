@@ -1,8 +1,4 @@
-<<<<<<< HEAD:wildflower/jlm/controllers/components/write_new.js
-$.jlm.component('WriteNew', 'wild_posts.wf_index, wild_posts.wf_edit, wild_pages.wf_index, wild_pages.wf_edit, wild_events.wf_index', function() {
-=======
-$.jlm.component('WriteNew', 'posts.admin_index, posts.admin_edit, pages.admin_index, pages.admin_edit', function() {
->>>>>>> 853920ce542235a426a12ae3ae2e697a80080143:wildflower/jlm/controllers/components/write_new.js
+$.jlm.component('WriteNew', 'posts.admin_index, posts.admin_edit, pages.admin_index, pages.admin_edit, events.admin_index', function() {
     
     $('#sidebar .add').click(function() {
         // if ($('.new-dialog').size() > 0) {

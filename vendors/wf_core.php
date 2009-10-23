@@ -19,10 +19,7 @@ Configure::write(array('Wildflower' => array(
     'gzipOutput' => true,
     'uploadsDirectoryName' => 'uploads',
     'uploadDirectory' => APP . WEBROOT_DIR .  DS . 'uploads', // @TODO rename the key
-<<<<<<< HEAD:wildflower/config/core.php
-    'prefix' => 'wf-admin',
-=======
->>>>>>> 853920ce542235a426a12ae3ae2e697a80080143:vendors/wf_core.php
+    //'prefix' => 'wf-admin',
     'rootPageCache' => CACHE . 'wf_root_pages',
     'previewCache' => CACHE . 'wf_previews',
     'thumbnailsCache' => CACHE . 'wf_thumbnails',

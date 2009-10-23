@@ -308,17 +308,10 @@ class AppController extends Controller {
      * @return bool
      */
     function isAdminAction() {
-<<<<<<< HEAD:app/app_controller.php
-        $adminRoute = Configure::read('Routing.admin');
-        $wfPrefix = Configure::read('Wildflower.prefix');
-        if (isset($this->params[$adminRoute]) && $this->params[$adminRoute] === $wfPrefix) return true;
-        return (isset($this->params['prefix']) && $this->params['prefix'] === 'wf');
-=======
         if (isset($this->params[Configure::read('Routing.admin')]) and $this->params[Configure::read('Routing.admin')]) {
             return true;
         }
         return false;
->>>>>>> 853920ce542235a426a12ae3ae2e697a80080143:app/app_controller.php
     }
 
     /**

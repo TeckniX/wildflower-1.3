@@ -42,13 +42,11 @@ img {
     border: none;
 }
 
-<<<<<<< HEAD:app/webroot/wildflower/css/wf.main.css
 .clear, .cleaner{
         clear: both;
-=======
+}
 hr {
     display: none;
->>>>>>> 853920ce542235a426a12ae3ae2e697a80080143:app/webroot/wildflower/css/wf.main.css
 }
 
 #wrap,

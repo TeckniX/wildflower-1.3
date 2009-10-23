@@ -2,14 +2,7 @@
 	<h2><?php echo $post['Post']['title']; ?></h2>
 	<small class="post-date">Posted <?php echo $time->nice($post['Post']['created']); ?></small>
 	
-<<<<<<< HEAD:wildflower/views/wild_posts/view.ctp
-	<div class="entry">
-		<?php echo $html->image('/wildflower/thumbnail/'. end(explode('/',$post['WildPost']['thumbnail'])).'/300/1000', array('style'=>'text-align: right')); ?>
-		<?php echo $post['WildPost']['content']; ?>
-		</div>
-=======
 	<div class="entry"><?php echo $post['Post']['content']; ?></div>
->>>>>>> 853920ce542235a426a12ae3ae2e697a80080143:wildflower/views/posts/view.ctp
 	
 	<?php if (!empty($post['Category'])) { ?>
 	   <p class="postmeta">Posted in <?php echo $category->getList($post['Category']); ?>.</p>

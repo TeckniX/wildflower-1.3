@@ -61,39 +61,11 @@
 <body>
  
 <div id="header">
-<<<<<<< HEAD:wildflower/views/layouts/admin_default.ctp
-    <div id="header-wrap">
-        <h1 id="site-title"><?php echo $html->link($siteName, '/', array('title' => __('View homepage', true))); ?></h1>
-        
-        <div id="login-info">
-            <?php echo $htmla->link(__('Logout', true), array('controller' => 'wild_users', 'action' => 'logout'), array('id' => 'logout')); ?>
-            
-        </div>
-
-        <?php 
-            echo $navigation->create(array(
-                __('Dashboard', true) => '/' . Configure::read('Wildflower.prefix'),
-                __('Pages', true) => array('controller' => 'wild_pages'),
-                __('Modules', true) => array('controller' => 'wild_sidebars'),
-                __('Posts', true) => array('controller' => 'wild_posts'),
-                __('Categories', true) => array('controller' => 'wild_categories'),
-                __('Comments', true) => array('controller' => 'wild_comments'),
-				__('Events', true) => array('controller' => 'wild_events'),
-                __('Messages', true) => array('controller' => 'wild_messages'),
-                __('Files', true) => array('controller' => 'wild_assets'),
-                
-                __('Users', true) => array('controller' => 'wild_users'),
-                __('Site Settings', true) => array('controller' => 'wild_settings'),
-                
-            ), array('id' => 'nav'));
-        ?>
-=======
     <h1 id="site_title"><?php echo hsc($siteName); ?></h1>
     <?php echo $html->link('Site index', '/', array('title' => __('Visit ', true)  . FULL_BASE_URL, 'id' => 'site_index')); ?>
     
     <div id="login_info">
         <?php echo $htmla->link(__('Logout', true), array('controller' => 'users', 'action' => 'logout'), array('id' => 'logout')); ?>
->>>>>>> 853920ce542235a426a12ae3ae2e697a80080143:wildflower/views/layouts/admin_default.ctp
     </div>
 
     <ul id="nav">

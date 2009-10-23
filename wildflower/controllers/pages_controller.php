@@ -115,24 +115,8 @@ class PagesController extends AppController {
         if (empty($this->data)) return $this->cakeError('object_not_found');
         
         $this->pageTitle = $this->data[$this->modelClass]['title'];
-<<<<<<< HEAD:wildflower/controllers/wild_pages_controller.php
-        $parentPageOptions = $this->WildPage->getListThreaded($this->data['WildPage']['id']);
-		if ($handle = opendir(APP . 'views' . DS . 'themed' . DS . $this->theme . DS . 'wild_pages' . DS)) { 
-			$templatePageOptions = Array();
-		    while (false !== ($file = readdir($handle))) { 
-		        if (end(explode('.', $file)) == "ctp") { 
-		            $templatePageOptions[substr($file,0, strrpos($file,"."))] = ucfirst(substr($file,0, strrpos($file,"."))); 
-		        } 
-		    } 
-		    closedir($handle); 
-			asort($templatePageOptions);
-		} 
-		
-        $this->set(compact('parentPageOptions', 'templatePageOptions'));
-=======
         $parentPageOptions = $this->Page->getListThreaded($this->data['Page']['id']);
         $this->set(compact('parentPageOptions'));
->>>>>>> 853920ce542235a426a12ae3ae2e697a80080143:wildflower/controllers/pages_controller.php
     }
     
     function admin_reorder() {
@@ -488,11 +472,6 @@ class PagesController extends AppController {
             $template = 'home';
         }
         $render = $template;
-<<<<<<< HEAD:wildflower/controllers/wild_pages_controller.php
-		
-        if(!empty($page_template) && file_exists(APP . 'views' . DS . 'themed' . DS . $this->theme . DS . 'wild_pages' . DS . $page_template . '.ctp')){
-        	$render = $page_template;
-=======
         
         if (isset($this->theme)) {
             $possibleThemeFile = APP . 'views' . DS . 'themed' . DS . $this->theme . DS . 'pages' . DS . $slug . '.ctp';
@@ -504,7 +483,6 @@ class PagesController extends AppController {
             if (file_exists($possibleThemeFile)) {
                 $render = $possibleThemeFile;
             }
->>>>>>> 853920ce542235a426a12ae3ae2e697a80080143:wildflower/controllers/pages_controller.php
         }
 		else{
 			while(!empty($url)){
