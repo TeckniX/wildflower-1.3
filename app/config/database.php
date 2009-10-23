@@ -134,4 +134,3 @@ class DATABASE_CONFIG {
     }
 
 }
->>>>>>> 853920ce542235a426a12ae3ae2e697a80080143:app/config/database.php

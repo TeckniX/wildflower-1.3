@@ -366,14 +366,16 @@ class PagesController extends AppController {
         );
         $this->set($this->params['pageMeta']);
 		
-		// Get all subpages for the current page or return pages at the same level
-		$navSlug = explode("/",substr($url,1));
+	// Get all subpages for the current page or return pages at the same level
+	/*
+	$navSlug = explode("/",substr($url,1));
         $this->params['childPages'] = $this->WildPage->getChildrenForMenu($page[$this->modelClass]['slug'],true);
 		$slugLevel = sizeof($navSlug)-1;
         while(empty($this->params['childPages']) && $slugLevel>=0){
                 $this->params['childPages'] = $this->WildPage->getChildrenForMenu($navSlug[$slugLevel],true);
 				$slugLevel--;
         }
+	*/
 		
 		
         // Parameters @TODO unify parameters
@@ -384,7 +386,7 @@ class PagesController extends AppController {
         $this->params['Wildflower']['page']['slug'] = $page[$this->modelClass]['slug'];        
         
         
-		$this->_chooseTemplate($url, $page[$this->modelClass]['sub_template']);
+		$this->_chooseTemplate($url);
     }
     
     function update_root_cache() {
@@ -465,7 +467,7 @@ class PagesController extends AppController {
      *
      * @param string $slug
      */
-     private function _chooseTemplate($url, $page_template=NULL) {
+    private function _chooseTemplate($slug) {
         // For home page home.ctp is the default
         $template = 'view';
         if ($this->isHome) {
@@ -484,23 +486,11 @@ class PagesController extends AppController {
                 $render = $possibleThemeFile;
             }
         }
-		else{
-			while(!empty($url)){
-				//get the slug just like in the view function
-				$slug = end(explode('/', $url));
-		        $slug = self::slug($slug);
-				
-		        $possibleThemeFile = APP . 'views' . DS . 'themed' . DS . $this->theme . DS . 'wild_pages' . DS . $slug . '.ctp';
-		        if (file_exists($possibleThemeFile)) {
-		            $render = $possibleThemeFile;
-					break;
-		        }
-				// remove the last slug from the url and try again
-		        $url = substr($url, 0, strrpos($url, "/"));
-			}
-		}
+        
         return $this->render($render);
     }
+    
+
     
     /**
      * Set 'parentPages' view variable
