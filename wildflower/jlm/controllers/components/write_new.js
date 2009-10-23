@@ -1,4 +1,8 @@
+<<<<<<< HEAD:wildflower/jlm/controllers/components/write_new.js
 $.jlm.component('WriteNew', 'wild_posts.wf_index, wild_posts.wf_edit, wild_pages.wf_index, wild_pages.wf_edit, wild_events.wf_index', function() {
+=======
+$.jlm.component('WriteNew', 'posts.admin_index, posts.admin_edit, pages.admin_index, pages.admin_edit', function() {
+>>>>>>> 853920ce542235a426a12ae3ae2e697a80080143:wildflower/jlm/controllers/components/write_new.js
     
     $('#sidebar .add').click(function() {
         // if ($('.new-dialog').size() > 0) {
@@ -13,10 +17,10 @@ $.jlm.component('WriteNew', 'wild_posts.wf_index, wild_posts.wf_edit, wild_pages
         
         var templatePath = 'posts/new_post';
         var parentPageOptions = null;
-        if ($.jlm.params.controller == 'wild_pages') {
+        if ($.jlm.params.controller == 'pages') {
             templatePath = 'pages/new_page';
             parentPageOptions = $('.all-page-parents').html();
-            parentPageOptions = parentPageOptions.replace('[Page]', '[WildPage]');
+            parentPageOptions = parentPageOptions.replace('[Page]', '[Page]');
             parentPageOptions = parentPageOptions.replace('[parent_id_options]', '[parent_id]');
         }
 		else if ($.jlm.params.controller == 'wild_events') {
